@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>记事本</title>
+    <link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/3.0.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+<div id="notepad">
+    <div class="navbar">
+        <h1>麦兜记事本</h1>
+    </div>
+    <div class="header">子曰：从此刻起做个有计划的人，今日事今日毕！</div>
+    <div class="note">猪精，完成任务了吗就去农药？</div>
+    <div id="task-form">
+        <div class="wrap">
+            <form @submit.prevent="addModify">
+                <div class="searchbar">
+                    <div class="clearfix">
+                        <input v-model="current.title" type="text" id="task-input" autocomplete="off"/>
+                        <button type="submit" id="add">添加</button>
+                        <button @click="toggle_add()" type="button" id="detail">
+                            详情<span class="triangle" :class="{rorate: add_detail==true}"></span>
+                        </button>
+                    </div>
+                </div>
+                <transition name="descTrans">
+                <div class="desc" v-if="current.id||add_detail">
+                    <textarea v-model="current.desc" rows="4" placeholder="描述计划详情"></textarea>
+                    <input v-model="current.alertTime" type="datetime-local"/>
+                </div>
+                </transition>
+            </form>
+        </div>
+    </div>
+    <div class="deleteWrap">
+        <div class="box">
+            <input type="checkbox"  @click="toggle_select" v-model="selectAll">全选/不全选
+            <span class="icon-trash" @click="deletePlan"></span>
+        </div>
+    </div>
+    <div class="task-item">
+        <div class="wrap">
+            <div class="planA">计划：</div>
+            <div class="item" v-if="!plan.finish" v-for="(plan,index) in noteList">
+                <img src="img/plan.png" alt="计划任务图标"/>
+                <div class="title"> {{plan.title}}</div>
+                <button @click="remove(plan.id)">删除</button>
+                <button @click="setCurrent(plan)">修改</button>
+                <button @click="toggle_detail(plan.id)">详情</button>
+                <button @click="toggle_finish(plan.id)">完成</button>
+                <div class="detail" v-if="plan.show_detail">
+                    {{plan.desc||'暂无详情'}}
+                    <span>{{plan.alertTime}}</span>
+                </div>
+                <input type="checkbox" class="deletebtn" :class="{ondelete:selectAll==true}" :checked="plan.checkbox" v-model="plan.checkbox">
+            </div>
+        </div>
+    </div>
+    <div class="task-item">
+        <div class="wrap">
+            <div class="planB">已完成：</div>
+            <div class="item finished" v-if="plan.finish" v-for="(plan,index) in noteList">
+                <img src="img/finish.jpeg" alt="已完成任务图标"/>
+                <div class="title titleF"> {{plan.title}}</div>
+                <button @click="remove(plan.id)">删除</button>
+                <button @click="toggle_detail(plan.id)">详情</button>
+                <button @click="toggle_finish(plan.id)">未完成</button>
+                <div class="detail" v-if="plan.show_detail">
+                    {{plan.desc||'暂无详情'}}
+                </div>
+                <input type="checkbox" class="deletebtn" :class="{ondelete:selectAll==true}" :checked="plan.checkbox" v-model="plan.checkbox">
+            </div>
+        </div>
+    </div>
+</div>
+<video muted><audio  id="alert-music" src="music/Glass.ogg" preload="auto"></audio></video>
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+<script src="js/myStorage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

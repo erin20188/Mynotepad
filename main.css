@@ -1,0 +1,189 @@
+*{
+    box-sizing: border-box;
+}
+.navbar,.header,.note{
+    text-align: center;
+}
+.navbar{
+    background-color: #5d235d73;
+    color: #FFFFFF;
+    padding: 15px 0;
+}
+.navbar h1{
+    margin: 0;
+    font-size: 25px;
+    cursor: default;
+}
+.header{
+    cursor: default;
+    font-size: 18px;
+    padding: 30px 0 10px;
+    font-weight: 500;
+}
+.note{
+    cursor: default;
+    color: #8c8c8c;
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+.wrap{
+    width: 750px;
+    margin: 10px auto;
+}
+#task-form{
+    margin-bottom: 25px;
+}
+#task-form .searchbar{
+    border: 2px solid #5d235d73;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.desc textarea,
+.desc input{
+    outline: none;
+    width:  750px;
+    display: block;
+    border: 1px solid #8c8c8c63;
+    margin-bottom: 10px;
+}
+.desc textarea:focus,
+.desc input:focus{
+    border: 2px solid #5d235d73;
+    box-shadow: 1px 1px 3px #5d235d80;
+}
+.searchbar input,.searchbar button{
+    float: left;
+    display: block;
+    border: 0;
+    padding: 10px 20px;
+    outline: 0;
+}
+.searchbar input{
+    width: 80%;
+    line-height: 22px;
+}
+.searchbar button{
+    width: 10%;
+    line-height: 22px;
+}
+#add{
+    border-right:1px solid #FFFFFF ;
+}
+.searchbar button:hover{
+    background-color: #ac83ac;
+    color: #FFFFFF;
+}
+.planA,.planB{
+    padding: 5px 0;
+    font-weight: 600;
+}
+.planA{
+    color: #5d235dbd;
+}
+.planB{
+    margin-top: 20px;
+    color: green;
+}
+.item{
+    min-height: 40px;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: rgba(0, 0, 0, .03);
+    position: relative;
+}
+.item:hover{
+    background-color: #b69cb640;
+}
+.item >*{
+    display: inline-block;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+.item button{
+    display: none;
+    margin-right: 10px;
+}
+.item button:hover{
+    background-color: #b69cb6;
+    color: #FFFFFF;
+}
+.item:hover button{
+    display: inline-block;
+}
+.wrap .title{
+    padding:0  40px 0 10px;
+    font-weight: 600;
+}
+.titleF{
+    text-decoration: line-through;
+    color: #90908f;
+}
+.task-item img{
+    border: 1px solid #989898;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.item .detail{
+    padding:10px 0px 10px 40px ;
+    display: block;
+    color:#4f4a4a;
+}
+#detail{
+    padding-right: 8px;
+}
+.descTrans-enter-active,.descTrans-leave-active{
+
+}
+.descTrans-enter, .descTrans-leave-active{
+    opacity: 0;
+}
+.triangle,
+.descTrans-enter-active,.descTrans-leave-active
+{
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+.triangle{
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top: 5px solid #FFFFFF;
+    vertical-align: middle;
+
+    display: inline-block;
+    margin-left: 4px;
+}
+.rorate{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+.deleteWrap{
+    width: 750px;
+    margin:30px auto 10px;
+    overflow: hidden;
+    cursor: default;
+}
+
+.deleteWrap .box{
+    float: right;
+    color:#534f4f;
+}
+.icon-trash{
+    margin-left: 12px;
+}
+.deletebtn{
+    display: none;
+    position: absolute;
+}
+.ondelete{
+    display: inline-block;
+    right: 15px;
+    top: 20px;
+}
+
