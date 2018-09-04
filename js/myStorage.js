@@ -1,7 +1,4 @@
-/**
- * Created by 麦兜 on 2018/7/26.
- */
-;(function(){
+(function(){
     window.ms={
         set:set,
         get:get
