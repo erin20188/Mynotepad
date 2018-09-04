@@ -1,6 +1,3 @@
-/**
- * Created by 麦兜 on 2018/7/26.
- */
 (function(){
     var oAlert_music=document.getElementById('alert-music');
     new Vue({
